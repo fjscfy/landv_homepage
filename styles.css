@@ -12,13 +12,6 @@
   font-style: normal;
   font-display: swap;
 }
-@font-face {
-  font-family: "Instrument Serif";
-  src: url(assets/fonts/instrument-serif-italic.ttf) format("truetype");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
 :root {
   --ink: #202a2a;
   --quiet: #505e5f;
@@ -48,36 +41,15 @@ h3 { letter-spacing: -.03em; }
 .mast, .hero-band { color: var(--ink); background: #f9fbfa; }
 .mast-inner, .mast nav, .foot { display: flex; align-items: center; }
 .mast-inner { min-height: 62px; justify-content: space-between; gap: 16px; border-bottom: 1px solid var(--line); }
-.logotype, .hero-mark { color: var(--ink); font-family: var(--serif); font-weight: 610; letter-spacing: -.055em; line-height: .92; }
-.logotype { font-size: 28px; }
-.lidar-letter { color: var(--accent); }
-.wordmark-and {
-  font-family: "Instrument Serif", Georgia, serif;
-  font-style: italic; font-size: .86em; font-weight: 400;
-  letter-spacing: -.038em; margin-inline: .032em .055em;
-}
-.video-letter {
-  display: inline-block;
-  font-family: "Source Sans 3", Arial, sans-serif;
-  font-weight: 650;
-  transform: skewX(-9deg);
-  color: #277f67;
-}
-@supports (background-clip: text) {
-  .video-letter {
-    background: linear-gradient(90deg, #c94a49 22%, #278264 44% 53%, #3477b8 76%);
-    background-clip: text;
-    color: transparent;
-  }
-  .hero-mark .lidar-letter {
-    background: linear-gradient(150deg, var(--accent) 24%, transparent 70%), radial-gradient(circle, var(--accent) 1.05px, transparent 1.45px) 0 0 / 3px 3px;
-    background-clip: text;
-    color: transparent;
-  }
-}
-@media (forced-colors: active) {
-  .hero-mark .lidar-letter { background: none; color: CanvasText; }
-  .video-letter { background: none; color: CanvasText; }
+.logotype, .hero-mark { display: block; }
+.logotype { width: 80px; }
+.wordmark-art {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* Let the pale paper in the supplied artwork blend into the page. */
+  filter: brightness(1.07);
+  mix-blend-mode: multiply;
 }
 .mast nav { gap: clamp(14px, 2vw, 30px); color: var(--quiet); font-size: 14px; font-weight: 540; }
 .mast a:hover { color: var(--accent); }
@@ -87,7 +59,7 @@ h3 { letter-spacing: -.03em; }
 }
 .hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); align-items: center; gap: clamp(38px, 5vw, 80px); padding-block: clamp(38px, 3.8vw, 64px); }
 .hero h1 { font-size: inherit; }
-.hero-mark { display: block; font-size: clamp(80px, 8vw, 120px); margin: 0 0 .23em -.045em; }
+.hero-mark { width: min(100%, clamp(236px, 28vw, 386px)); margin: 0 0 28px; }
 .paper-name { display: block; max-width: 28ch; font-family: var(--serif); font-size: clamp(27px, 2.5vw, 38px); line-height: 1.16; font-weight: 470; letter-spacing: -.026em; text-wrap: balance; }
 .paper-name span { white-space: nowrap; }
 .paper-byline { margin-top: 24px; }
@@ -203,7 +175,6 @@ dialog::backdrop { background: #172627ce; }
 @media (max-width: 940px) {
   .wrap { width: calc(100% - 56px); }
   .hero { column-gap: 32px; }
-  .hero-mark { font-size: 80px; }
   .paper-name { font-size: 25px; }
   .intro-section { gap: 32px; }
 }
@@ -228,9 +199,8 @@ dialog::backdrop { background: #172627ce; }
 }
 @media (max-width: 500px) {
   .mast-inner { gap: 8px; }
-  .mast .logotype { font-size: 24px; }
+  .mast .logotype { width: 70px; }
   .mast nav { gap: clamp(8px, 2.5vw, 14px); font-size: 13px; }
-  .hero-mark { font-size: 72px; }
   .hero-labels small { font-size: 12px; }
   .gallery-nav { display: grid; grid-template-columns: auto auto; justify-content: start; gap: 3px 20px; }
   .gallery-nav button { font-size: 14px; padding: 7px 0; }
