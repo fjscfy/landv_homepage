@@ -57,10 +57,18 @@ h3 { letter-spacing: -.03em; }
   letter-spacing: -.038em; margin-inline: .032em .055em;
 }
 .video-letter {
-  color: var(--ink);
-  text-shadow: -.032em .014em 0 #d65b59, 0 -.028em 0 #369163, .035em .015em 0 #4b7fce;
+  display: inline-block;
+  font-family: "Source Sans 3", Arial, sans-serif;
+  font-weight: 650;
+  transform: skewX(-9deg);
+  color: #277f67;
 }
 @supports (background-clip: text) {
+  .video-letter {
+    background: linear-gradient(90deg, #c94a49 22%, #278264 44% 53%, #3477b8 76%);
+    background-clip: text;
+    color: transparent;
+  }
   .hero-mark .lidar-letter {
     background: linear-gradient(150deg, var(--accent) 24%, transparent 70%), radial-gradient(circle, var(--accent) 1.05px, transparent 1.45px) 0 0 / 3px 3px;
     background-clip: text;
@@ -69,7 +77,7 @@ h3 { letter-spacing: -.03em; }
 }
 @media (forced-colors: active) {
   .hero-mark .lidar-letter { background: none; color: CanvasText; }
-  .video-letter { text-shadow: none; }
+  .video-letter { background: none; color: CanvasText; }
 }
 .mast nav { gap: clamp(14px, 2vw, 30px); color: var(--quiet); font-size: 14px; font-weight: 540; }
 .mast a:hover { color: var(--accent); }
